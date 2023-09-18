@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          this.menuType = 'seller'
+          this.menuType = 'seller';
           if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
             let sellerData = sellerStore && JSON.parse(sellerStore)[0];
@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     localStorage.removeItem('seller');
+    this.sellerName = '';
     this.route.navigate(['/']);
   }
 }
